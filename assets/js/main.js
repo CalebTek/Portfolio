@@ -280,3 +280,58 @@ var yearsOfExperience = currentYear - startYear;
 
 // Update the content of the <span> element
 document.getElementById("years").textContent = yearsOfExperience;
+
+// display name
+var name = "Olawale Odeyemi";
+document.getElementById("my-name").textContent = name;
+
+// // portfolio details
+// const projects = {
+//   project1: {
+//     name: "Online Shopping",
+//     category: "Web Application",
+//     client: "Great AFO Enterprise",
+//     date: "01 March, 2020",
+//     url: "https://github.com/CalebTek/Online-Shopping",
+//     description:
+//       "The “Online Shopping” project, represents a web-based application that simulates and demonstrates the concept of online shopping, a popular form of electronic commerce that enables consumers to purchase products or services directly from sellers via the Internet."
+//   },
+//   project2: {
+//     // Define data for project 2
+//   }
+//   // Add data for other projects
+// };
+
+// $(document).ready(function () {
+//   $(".portfolio-link").click(function (e) {
+//     e.preventDefault();
+
+//     // Get the project ID from the data-project attribute
+//     const projectID = $(this).data("project");
+
+//     // // Get the project data from the projects object
+//     // const projectData = projects[projectID];
+
+//     // // Update the portfolio-details section with the project data
+//     // $("#portfolio-details .project-name").text(projectData.name);
+//     // $("#portfolio-details .project-category").text(projectData.category);
+//     // $("#portfolio-details .project-client").text(projectData.client);
+//     // $("#portfolio-details .project-date").text(projectData.date);
+//     // $("#portfolio-details .project-url").attr("href", projectData.url);
+//     // $("#portfolio-details .project-description").text(projectData.description);
+
+//     // Example JavaScript code to update project details
+//     const projectData = projects[projectID];
+
+//     // Update project details
+//     document.getElementById("project-name").textContent = projectData.name;
+//     document.getElementById("project-category").textContent =
+//       projectData.category;
+//     document.getElementById("project-client").textContent = projectData.client;
+//     document.getElementById("project-date").textContent = projectData.date;
+//     document.getElementById("project-url").href = projectData.url;
+//     document.getElementById("project-url").textContent = projectData.url;
+//     document.getElementById("project-description").innerHTML =
+//       projectData.description;
+//   });
+// });
