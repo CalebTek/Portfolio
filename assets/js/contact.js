@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
-  const modal = document.getElementById("myModal");
-  const modalHeader = document.getElementById("modal-header");
-  const modalMessage = document.getElementById("modal-message");
-  const closeBtn = document.querySelector(".close");
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -14,35 +10,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetch(formEndpoint, {
       method: "POST",
-      body: formData
+      body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
         if (data.ok) {
-          modalHeader.textContent = "Success!";
-          modalMessage.textContent = "Your message has been sent successfully.";
+          // Form submission was successful
+          displaySuccessMessage();
         } else {
-          modalHeader.textContent = "Error!";
-          modalMessage.textContent =
-            "There was an error sending your message. Please try again later.";
+          // Form submission encountered an error
+          displayErrorMessage();
         }
-        modal.style.display = "block";
       })
       .catch((error) => {
-        modalHeader.textContent = "Error!";
-        modalMessage.textContent =
-          "There was an error sending your message. Please try again later.";
-        modal.style.display = "block";
+        // Network error or other issues
+        displayErrorMessage();
       });
   });
 
-  closeBtn.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
+  function displaySuccessMessage() {
+    // Hide the error message
+    const errorMessage = document.querySelector(".error-message");
+    errorMessage.style.display = "none";
 
-  window.addEventListener("click", function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  });
+    // Display a success message where you prefer in your HTML
+    const successMessage = document.querySelector(".sent-message");
+    successMessage.style.display = "block";
+  }
+
+  function displayErrorMessage() {
+    // Hide the success message
+    const successMessage = document.querySelector(".sent-message");
+    successMessage.style.display = "none";
+
+    // Display an error message where you prefer in your HTML
+    const errorMessage = document.querySelector(".error-message");
+    errorMessage.style.display = "block";
+  }
 });
